@@ -1,0 +1,193 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Qplotter</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-04-07"><meta name="DC.source" content="Qplotter.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Qplotter</h1><!--introduction--><p>plots answer to the questions</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">Examples</a></li><li><a href="#4">Input Arguments</a></li><li><a href="#5">Output Arguments</a></li></ul></div><h2>Syntax<a name="1"></a></h2><pre>     Qplotter(Answer)</pre><h2>Description<a name="2"></a></h2><p>creates an histogram for each charateristic analyzed. For all the experiments performs the average considering the data of all the volunteer.</p><div><ul><li>naturalness</li><li>praticality</li><li>comfort</li><li>safety</li><li>speed</li><li>timing</li></ul></div><h2>Examples<a name="3"></a></h2><p>create histogram considering all the volunteer</p><pre>     Qplotter(Answer);</pre><p>create histogram considering only one volunteer</p><pre>     Qplotter(Answer(:,:,1));</pre><h2>Input Arguments<a name="4"></a></h2><p>There is only one allowed input the Answer cell array, it can be a 3D cell array or not.</p><p><i>Answer(:,2,const)</i> contains the experiment names</p><p><i>Answer(1,2:end,const)</i> contains the evaluated caratteristics</p><p><i>Answer(2:end,2:end,const)</i> contains the evalutations</p><p>the third dimension allow to store data for different volunteers.</p><h2>Output Arguments<a name="5"></a></h2><p>no output is generated, it is only opened a figure tab</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Qplotter
+% 
+% plots answer to the questions  
+%
+%% Syntax
+%
+%       Qplotter(Answer)
+%
+%% Description
+% creates an histogram for each charateristic analyzed. For all the
+% experiments performs the average considering the data of all the
+% volunteer.
+%
+% * naturalness
+% * praticality
+% * comfort
+% * safety
+% * speed
+% * timing
+%    
+%% Examples
+% 
+% create histogram considering all the volunteer
+%
+%       Qplotter(Answer);
+%
+% create histogram considering only one volunteer
+%
+%       Qplotter(Answer(:,:,1));
+%
+%% Input Arguments
+% There is only one allowed input the Answer cell array, it can be a 3D cell array
+% or not.
+%
+% _Answer(:,2,const)_ contains the experiment names
+%
+% _Answer(1,2:end,const)_ contains the evaluated caratteristics
+%
+% _Answer(2:end,2:end,const)_ contains the evalutations
+%
+%
+% the third dimension allow to store data for different volunteers.
+%
+%% Output Arguments
+% no output is generated, it is only opened a figure tab
+%
+function [] = Qplotter(Answer)
+    [~,~,n] = size(Answer);
+    naturalness(1:44) = 0;
+    praticality(1:44) = 0;
+    comfort(1:44) = 0;
+    safety(1:44) = 0;
+    speed(1:44) = 0;
+    timing(1:44) = 0;
+    nexperiment(1:44) = 0;
+    for i=1:n
+        [c,~] = size(Answer(:,:,i));
+        for j=2:c
+            if iscellstr(Answer(j,1,i))
+               
+                C = strsplit(Answer{j,1,i},{'#','_'});
+                num = str2double(C{2})-32;
+                
+                naturalness(1,num) = naturalness(1,num)+ cell2mat(Answer(j,2,i));
+                praticality(1,num) = praticality(1,num)+ cell2mat(Answer(j,3,i));
+                comfort(1,num) = comfort(1,num)+ cell2mat(Answer(j,4,i));
+                safety(1,num) = safety(1,num)+ cell2mat(Answer(j,5,i));
+                speed(1,num) = speed(1,num)+ cell2mat(Answer(j,6,i));
+                timing(1,num) = timing(1,num)+ cell2mat(Answer(j,7,i));
+                nexperiment(1,num) = nexperiment(1,num)+ 1;
+            end
+        end
+    end
+    
+    figure('units','normalized','outerposition',[0 0 1 1])
+    ax1 = subplot(3,2,1);
+    avg = naturalness./nexperiment;
+    y = [avg(1,1:8);avg(1,9:16);avg(1,17:24);avg(1,25:32);avg(1,33:40);avg(1,41:44)  0 0 0 0];
+    bar(ax1,y,0.4);
+    title('naturalness');
+    axis([ 0 7 0 4]);
+    
+    ax2 = subplot(3,2,2);
+    avg = praticality./nexperiment;
+    y = [avg(1,1:8);avg(1,9:16);avg(1,17:24);avg(1,25:32);avg(1,33:40);avg(1,41:44)  0 0 0 0];
+    bar(ax2,y,0.4);
+    title('praticality');
+    axis([ 0 7 0 4]);
+    
+    ax3 = subplot(3,2,3);
+    avg = comfort./nexperiment;
+    y = [avg(1,1:8);avg(1,9:16);avg(1,17:24);avg(1,25:32);avg(1,33:40);avg(1,41:44)  0 0 0 0];
+    bar(ax3,y,0.4);
+    title('comfort');
+    axis([ 0 7 0 4]);
+    
+    ax4 = subplot(3,2,4);
+    avg = safety./nexperiment;
+    y = [avg(1,1:8);avg(1,9:16);avg(1,17:24);avg(1,25:32);avg(1,33:40);avg(1,41:44)  0 0 0 0];
+    bar(ax4,y,0.4);
+    title('safety');
+    axis([ 0 7 0 4]);
+    
+    ax5 = subplot(3,2,5);
+    avg = speed./nexperiment;
+    y = [avg(1,1:8);avg(1,9:16);avg(1,17:24);avg(1,25:32);avg(1,33:40);avg(1,41:44)  0 0 0 0];
+    bar(ax5,y,0.4);
+    title('speed');
+    axis([ 0 7 0 4]);
+    
+    ax6 = subplot(3,2,6);
+    avg = timing./nexperiment;
+    y = [avg(1,1:8);avg(1,9:16);avg(1,17:24);avg(1,25:32);avg(1,33:40);avg(1,41:44)  0 0 0 0];
+    bar(ax6,y,0.4);
+    title('timing');
+    axis([ 0 7 0 4]);
+    pause
+    close all
+end
+
+
+##### SOURCE END #####
+--></body></html>

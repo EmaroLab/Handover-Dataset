@@ -1,0 +1,274 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>loader</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-03-31"><meta name="DC.source" content="loader.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>loader</h1><!--introduction--><p>load excel files</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">Examples</a></li><li><a href="#4">Input Arguments</a></li><li><a href="#5">Output Arguments</a></li><li><a href="#6">More About</a></li></ul></div><h2>Syntax<a name="1"></a></h2><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader(experiment_name)</pre><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader(keyword)</pre><h2>Description<a name="2"></a></h2><p>loader creates four cell array containig the data of one or more experiments. The experiments can be selected using the exact name or through the usage of keywords</p><h2>Examples<a name="3"></a></h2><p>load one experiment using its name</p><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('Andrea_65');</pre><p>load all the controlled experiments</p><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('controlled');</pre><p>load all the experiments</p><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('all');</pre><p>load only kinect data of experiments with approach</p><pre>     [~,~,~,KinectData,experimentName] = loader('approach');</pre><h2>Input Arguments<a name="4"></a></h2><p><b>experiment name</b></p><p>it should be in one of the following form: " <b>Subject_Num</b> "   or   " <b>Subject1_Subject2_Num</b> "</p><p><b>key word</b></p><p>it has to be selected between one of the following</p><div><ul><li>all</li><li>controlled (<b>experiment type</b>)</li><li>notcontrolled (<b>experiment type</b>)</li><li>approach (<b>experiment type</b>)</li><li>noapproach (<b>experiment type</b>)</li><li>giving (<b>experiment type</b>)</li><li>receving (<b>experiment type</b>)</li><li>card (<b>item type</b>)</li><li>paper (<b>item type</b>)</li><li>waterbottle (<b>item type</b>)</li><li>box (<b>item type</b>)</li><li>dictionary (<b>item type</b>)</li><li>pillow (<b>item type</b>)</li><li>stick (<b>item type</b>)</li><li>mug (<b>item type</b>)</li><li>ball (<b>item type</b>)</li><li>blackbottle (<b>item type</b>)</li><li>normal (<b>control type</b>)</li><li>quick (<b>control type</b>)</li><li>slow (<b>control type</b>)</li><li>holding (<b>control type</b>)</li><li>wrongpos (<b>control type</b>)</li></ul></div><h2>Output Arguments<a name="5"></a></h2><p>the output concerns of four cell array and a vector of string</p><div><ul><li>MocapData (contains 3D coordinate of 20 marker tracked by a mocap)</li><li>w1Data (contains IMU data collected by a smartwatch)</li><li>w2Data (contains IMU data collected by a smartwatch)</li><li>KinectData (3D coordinates of 15 human joints tracked by the kinect)</li><li>experimentName (name of experiment)</li></ul></div><p>w1Data and KinectData refers to the same person.</p><p>In case more than one experiment are loaded at the same time, each matrix is aranged in a 3 dimensional cell array in which the last index allows to identify the experiment. The sam thing works for the vector <i>experimentName</i></p><p><b>e.g.</b> if I loaded N experiment and I want to access one specific one</p><pre>     MocapData(:,:,1)</pre><h2>More About<a name="6"></a></h2><p>All the data regarding the experiment descriptions are stored in the file ExperimentTable so that it would be possible to extend the function in order to accept more that one input.</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% loader
+% 
+% load excel files     
+%
+%% Syntax
+%
+%       [MocapData,w1Data,w2Data,KinectData,experimentName] = loader(experiment_name)
+%
+%       [MocapData,w1Data,w2Data,KinectData,experimentName] = loader(keyword)
+%
+%% Description
+% loader creates four cell array containig the data of one or more
+% experiments. The experiments can be selected using the exact name or
+% through the usage of keywords
+%    
+%% Examples
+% 
+% load one experiment using its name
+%
+%       [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('Andrea_65');
+%
+% load all the controlled experiments
+%
+%       [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('controlled');
+%
+% load all the experiments
+%
+%       [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('all');
+%
+% load only kinect data of experiments with approach
+%
+%       [~,~,~,KinectData,experimentName] = loader('approach');
+%
+%% Input Arguments
+% *experiment name*
+%
+% it should be in one of the following form: " *Subject_Num* "   or   " *Subject1_Subject2_Num* "
+%
+% *key word*
+%
+% it has to be selected between one of the following
+%
+% * all
+% * controlled (*experiment type*)
+% * notcontrolled (*experiment type*)
+% * approach (*experiment type*)
+% * noapproach (*experiment type*)
+% * giving (*experiment type*)
+% * receving (*experiment type*)
+% * card (*item type*)          
+% * paper (*item type*)
+% * waterbottle (*item type*)
+% * box (*item type*)
+% * dictionary (*item type*)
+% * pillow (*item type*)
+% * stick (*item type*)
+% * mug (*item type*)
+% * ball (*item type*)
+% * blackbottle (*item type*)
+% * normal (*control type*)
+% * quick (*control type*)
+% * slow (*control type*)
+% * holding (*control type*)
+% * wrongpos (*control type*)
+%
+%
+%% Output Arguments
+%
+% the output concerns of four cell array and a vector of string
+%
+% * MocapData (contains 3D coordinate of 20 marker tracked by a mocap)
+% * w1Data (contains IMU data collected by a smartwatch)
+% * w2Data (contains IMU data collected by a smartwatch)
+% * KinectData (3D coordinates of 15 human joints tracked by the kinect)
+% * experimentName (name of experiment) 
+%
+% w1Data and KinectData refers to the same person.
+%
+% In case more than one experiment are loaded at the same time, each
+% matrix is aranged in a 3 dimensional cell array in which the last index
+% allows to identify the experiment. The sam thing works for the vector
+% _experimentName_
+%
+% *e.g.* if I loaded N experiment and I want to access one specific one
+%
+%       MocapData(:,:,1)
+%
+%% More About
+%
+% All the data regarding the experiment descriptions are stored in the file 
+% ExperimentTable so that it would be possible to extend the function
+% in order to accept more that one input.
+
+
+function [ MocapData, w1Data, w2Data, KinectData,experimentName] = loader(varargin)
+    filename = 'excel_file/ExperimentTable.xlsx';
+    [~,~,A]  = xlsread(filename,'','','basic');
+    
+    sizeA = size(A);
+    nVarargs = length(varargin);
+    
+    if nVarargs ~= 1
+        error('input size not correct, only one input si allowed');
+    end
+    
+    control = {'controlled','notcontrolled'};
+    controlType = {'normal','quick','slow','holding','wrongpos'};
+    object = {'card','paper','waterbottle','box','dictionary','pillow','stick','mug','ball','blackbottle'};
+    moving = {'approach','noapproach'};
+    agent = {'giving','receiving'};
+    
+    index = [];
+    
+    if strcmp('all',varargin)
+        index = 0;
+    elseif find(strcmp(control,varargin),1)
+        index = 2;
+    elseif find(strcmp(object,varargin),1)
+        varargin = num2str(find(strcmp(object,varargin),1));
+        index = 5;
+    elseif find(strcmp(moving,varargin),1)
+        index = 3;
+    elseif find(strcmp(agent,varargin),1)
+        index = 4;
+    elseif find(strcmp(controlType,varargin),1)
+        index = 6;
+    else
+        index = 1;
+    end
+    
+    if index == 2 || index == 3 || index == 4
+        if strcmp(varargin,A(1,index))
+            varargin = 'true';
+        else
+            varargin = 'false';
+        end
+    end
+        
+    
+        
+    numbers = [];
+    if index == 0
+        numbers = 1:76;
+    elseif index~=1 
+        for i=2:sizeA(1)
+            if strcmp(num2str(cell2mat(A(i,index))),varargin)
+                numbers = [numbers,i-1];
+            end
+        end
+    end
+           
+    folders = dir('excel_file');
+    numNumb = length(numbers);
+    numDir = length(folders);
+    ID = 1;
+    
+    for i=1:1:numDir
+        directory = folders(i).name;
+        if directory ~= '.';
+            if index == 1
+                filename = strcat('excel_file/',directory,'/',varargin,'.xlsx');
+                inFID = fopen(char(filename),'r');
+                if inFID~= -1
+                    filename
+                    fclose(inFID);
+                    [~,~,A]  = xlsread(char(filename),'','','basic')
+                     
+                    [MocapData, w1Data, w2Data, KinectData]=split(A);
+                    experimentName = varargin;
+                end
+            else
+                for j=1:numNumb
+                    filename = strcat('excel_file/',directory,'/',directory,'_',num2str(numbers(j)),'*.xlsx');
+                    files = dir(filename);
+                    numFiles = length(files);
+                    for k=1:numFiles
+                        filename = strcat('excel_file/',directory,'/',files(k).name);
+                        inFID = fopen(char(filename),'r');
+
+                        if inFID~= -1
+                            filename
+                            fclose(inFID);
+                            [~,~,A]  = xlsread(char(filename),'','','basic');
+                            [M, w1, w2, Kinect]=split(A);
+                            sM = size(M);
+                            sw1 = size(w1);
+                            sw2 = size(w2);
+                            sK = size(Kinect);
+                            MocapData(1:sM(1),1:sM(2),ID) = M;
+                            w1Data(1:sw1(1),1:sw1(2),ID) = w1;
+                            w2Data(1:sw2(1),1:sw2(2),ID) = w2;
+                            KinectData(1:sK(1),1:sK(2),ID) = Kinect;
+                            experimentName(1,ID) = cellstr(strcat(directory,'_',num2str(numbers(j))));
+                            ID = ID+1;
+                        end
+                    end
+                end
+            end
+        end
+    end
+end
+
+##### SOURCE END #####
+--></body></html>
