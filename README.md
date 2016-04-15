@@ -1,41 +1,41 @@
-###A multi-sensor public dataset of human-human handover###
+# A multi-sensor public dataset of human-human handover
 
 This folder contains the data composing the dataset and some useful matlab functions.
 
-##How to start##
+## How to start
 
 If you want to work with the kinematic data, the first function that you have to use is the loader function that allows you to load some of all the dataset data in
 the matlab workspace, for further information about this and the other functions use the matlab help command.
 
 Otherwise if you want to work with the questionnaire you have to use the Qloader function.
 
-##Folder Description##
+## Folder Description   
 
--excel_files: contains the main part of the dataset, it is organized in subfolders that group the experiments data
+- **excel_files**: contains the main part of the dataset, it is organized in subfolders that group the experiments data
 	      of one or a couple of volunteers. For every experiment there is an excel file containing tagged data.
 
--video: contains the video recorded while performing the experiments. The structure is the same as for the excel_files folder.
+- **video**: contains the video recorded while performing the experiments. The structure is the same as for the excel_files folder.
 
--lib: contains some matlab functions used by the main ones.
+- **lib**: contains some matlab functions used by the main ones.
 
--html: containts reference page for the matlab functions in the html format
+- **html**: containts reference page for the matlab functions in the html format
 
--questionnaire: contains one file for each volunteer with their questionnaire answers (there was some technical problem for this reason there are not the file
+- **questionnaire**: contains one file for each volunteer with their questionnaire answers (there was some technical problem for this reason there are not the file
 		for volunteer 3,4,7 and 8)
 
--inertiaplotter.m: matlab function that plots inertial data
+- **inertiaplotter.m**: matlab function that plots inertial data
 
--kinectplotter.m: matlab function that plots the kinect skeleton
+- **kinectplotter.m**: matlab function that plots the kinect skeleton
 
--loader.m: matlab function that loads data contained in excel_files folder
+- **loader.m**: matlab function that loads data contained in excel_files folder
 
--mocaplotter.m: matlab function that plot mocap data
+- **mocaplotter.m**: matlab function that plot mocap data
 
--play.m: matlab function that plays the video record of one experiment
+- **play.m**: matlab function that plays the video record of one experiment
 
--Qloader.m: matlab function that loads data contained in questionnaire folder
+- **Qloader.m**: matlab function that loads data contained in questionnaire folder
 
--Qplotter.m: matlab function that plots questionnaire results
+- **Qplotter.m**: matlab function that plots questionnaire results
 
 ## Licensing
 
@@ -50,7 +50,7 @@ For further license information, please contact the authors.
 If you want to be informed about dataset updates and new code releases, obtain further information about the provided dataset,
 or contribute to its development please write to:
 
-- Alessandro CarfÏ, dept. DIBRIS Universit‡ degli Studi di Genova (Italy) carfi.alessandro@gmail.com
-- Francesco Foglino, dept. DIBRIS Universit‡ degli Studi di Genova (Italy) foglino1992@yahoo.it
-- Barbara Bruno, dept. DIBRIS Universit‡ degli Studi di Genova (Italy) barbara.bruno@unige.it
-- Fulvio Mastrogiovanni, dept. DIBRIS Universit‡ degli Studi di Genova (Italy) fulvio.mastrogiovanni@unige.it
+- Alessandro Carf√¨, dept. DIBRIS Universit√† degli Studi di Genova (Italy) carfi.alessandro@gmail.com
+- Francesco Foglino, dept. DIBRIS Universit√† degli Studi di Genova (Italy) foglino1992@yahoo.it
+- Barbara Bruno, dept. DIBRIS Universit√† degli Studi di Genova (Italy) barbara.bruno@unige.it
+- Fulvio Mastrogiovanni, dept. DIBRIS Universit√† degli Studi di Genova (Italy) fulvio.mastrogiovanni@unige.it
