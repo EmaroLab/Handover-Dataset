@@ -35,11 +35,11 @@
 % allows to mantain the order with whom the file was loaded
 
 function [Answer, Qname] = Qloader()
-    folders = dir('questionnaire');
+    folders = dir('questionnaires/Controlled Experiments');
     numDir = length(folders);
 
     for i=3:numDir
-        filename = strcat('questionnaire/',folders(i).name)
+        filename = strcat('questionnaires/Controlled Experiments/',folders(i).name)
         [~,~,A]  = xlsread(char(filename),'','','basic');
         [c,r]=size(A);
         Qname(i-2) = cellstr(folders(i).name);
