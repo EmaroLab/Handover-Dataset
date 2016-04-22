@@ -20,8 +20,7 @@ Otherwise if you want to work with the questionnaire you have to use the Qloader
 
 - **html**: containts reference page for the matlab functions in the html format
 
-- **questionnaire**: contains one file for each volunteer with their questionnaire answers (there was some technical problem for this reason there are not the file
-		for volunteer 3,4,7 and 8)
+- **questionnaires**: contains questionnaire answers plus volunteers data and annotation on the experiment execution (there was some technical problem for this reason there are not the file for volunteer 3,4,7 and 8)
 
 - **inertiaplotter.m**: matlab function that plots inertial data
 
