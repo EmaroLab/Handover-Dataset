@@ -13,4 +13,4 @@ In this folder there are three different type of file/folder:
 - volunteer_N_volunteer_N+1: Contains the excel files, one for each experiment, of the couple N,N-1. In this case the
                              experiments are the not controlled
 
-**Note**: voluntter_N and volunter_N_volunteer_N+1 data are completely raw so thei are no tagged nor ordered. They have no consistency over time.
+**Note**: volunter_N and volunter_N_volunteer_N+1 data are completely raw so thei are no tagged nor ordered. They have no consistency over time.
