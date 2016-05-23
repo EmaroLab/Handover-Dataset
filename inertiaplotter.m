@@ -14,11 +14,11 @@
 % 
 % plot IMU data of the first subject
 %
-%       inertiaplotter(w1Data)
+%       inertiaplotter(inertial_green)
 %
 % plot IMU data of the second subject
 %
-%       inertiaplotter(w2Data)
+%       inertiaplotter(inertial_blue)
 %
 %
 %% Input Arguments

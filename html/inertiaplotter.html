@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>inertiaplotter</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-03-31"><meta name="DC.source" content="inertiaplotter.m"><style type="text/css">
+      --><title>inertiaplotter</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-05-23"><meta name="DC.source" content="inertiaplotter.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,7 +66,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>inertiaplotter</h1><!--introduction--><p>plot inertial data</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">Examples</a></li><li><a href="#4">Input Arguments</a></li><li><a href="#5">Output Arguments</a></li></ul></div><h2>Syntax<a name="1"></a></h2><pre>     loader(IMUdata)</pre><h2>Description<a name="2"></a></h2><p>inertialplotter plots angular velocities and linear accellerations stored in a cell array in the format provided my loader function</p><h2>Examples<a name="3"></a></h2><p>plot IMU data of the first subject</p><pre>     inertiaplotter(w1Data)</pre><p>plot IMU data of the second subject</p><pre>     inertiaplotter(w2Data)</pre><h2>Input Arguments<a name="4"></a></h2><p>the input is a cell array containing IMU data in the format</p><div><ul><li>1 column Time</li><li>2-4 columns Velocity (xyz format)</li><li>5-7 columns Acceleration (xyz format)</li></ul></div><h2>Output Arguments<a name="5"></a></h2><p>no output is generated, it is only opened a figure tab with the plots</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
+  </style></head><body><div class="content"><h1>inertiaplotter</h1><!--introduction--><p>plot inertial data</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">Examples</a></li><li><a href="#4">Input Arguments</a></li><li><a href="#5">Output Arguments</a></li></ul></div><h2>Syntax<a name="1"></a></h2><pre>     loader(IMUdata)</pre><h2>Description<a name="2"></a></h2><p>inertialplotter plots angular velocities and linear accellerations stored in a cell array in the format provided my loader function</p><h2>Examples<a name="3"></a></h2><p>plot IMU data of the first subject</p><pre>     inertiaplotter(inertial_green)</pre><p>plot IMU data of the second subject</p><pre>     inertiaplotter(inertial_blue)</pre><h2>Input Arguments<a name="4"></a></h2><p>the input is a cell array containing IMU data in the format</p><div><ul><li>1 column Time</li><li>2-4 columns Velocity (xyz format)</li><li>5-7 columns Acceleration (xyz format)</li></ul></div><h2>Output Arguments<a name="5"></a></h2><p>no output is generated, it is only opened a figure tab with the plots</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% inertiaplotter
 % 
@@ -84,11 +84,11 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 % 
 % plot IMU data of the first subject
 %
-%       inertiaplotter(w1Data)
+%       inertiaplotter(inertial_green)
 %
 % plot IMU data of the second subject
 %
-%       inertiaplotter(w2Data)
+%       inertiaplotter(inertial_blue)
 %
 %
 %% Input Arguments
@@ -121,7 +121,7 @@ function [] = inertiaplotter(wearableData)
     plot(T,aX,'red');
     plot(T,aY,'green');
     plot(T,aZ,'blue');
-    ylabel('Acceleration (m/s)');
+    ylabel('Acceleration (m/s^2)');
     xlabel('Time (s)');
     legend('x axis (raw data)','y axis (raw data)','z axis (raw data)','Location','northoutside','Orientation','horizontal')
     

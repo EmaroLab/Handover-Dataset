@@ -11,7 +11,7 @@ Otherwise if you want to work with the questionnaire you have to use the Qloader
 
 ## Folder Description   
 
-- **excel_files**: contains the main part of the dataset, it is organized in subfolders that group the experiments data
+- **sensor_data**: contains the main part of the dataset, it is organized in subfolders that group the experiments data
 	      of one or a couple of volunteers. For every experiment there is an excel file containing tagged data.
 
 - **video**: contains the video recorded while performing the experiments. The structure is the same as for the excel_files folder.
@@ -20,8 +20,7 @@ Otherwise if you want to work with the questionnaire you have to use the Qloader
 
 - **html**: containts reference page for the matlab functions in the html format
 
-- **questionnaire**: contains one file for each volunteer with their questionnaire answers (there was some technical problem for this reason there are not the file
-		for volunteer 3,4,7 and 8)
+- **questionnaires**: contains questionnaire answers plus volunteers data and annotation on the experiment execution (there was some technical problem for this reason there are not the file for volunteer 3,4,7 and 8)
 
 - **inertiaplotter.m**: matlab function that plots inertial data
 

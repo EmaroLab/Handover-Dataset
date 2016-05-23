@@ -47,21 +47,22 @@
 % * noapproach (*experiment type*)
 % * giving (*experiment type*)
 % * receving (*experiment type*)
-% * card (*item type*)          
-% * paper (*item type*)
-% * waterbottle (*item type*)
-% * box (*item type*)
-% * dictionary (*item type*)
-% * pillow (*item type*)
-% * stick (*item type*)
-% * mug (*item type*)
-% * ball (*item type*)
-% * blackbottle (*item type*)
-% * normal (*control type*)
-% * quick (*control type*)
-% * slow (*control type*)
-% * holding (*control type*)
-% * wrongpos (*control type*)
+% * card (*item*)          
+% * paper (*item*)
+% * waterbottle (*item*)
+% * box (*item*)
+% * dictionary (*item*)
+% * pillow (*item*)
+% * stick (*item*)
+% * mug (*item*)
+% * ball (*item*)
+% * blackbottle (*item*)
+% * normal (*strategy*)
+% * quick (*strategy*)
+% * delay (*strategy*)
+% * holding (*strategy*)
+% * wrongpos (*strategy*)
+% * deceptiveobject (*strategy*)
 %
 %
 %% Output Arguments
@@ -98,7 +99,7 @@ function [ MocapData, w1Data, w2Data, KinectData,experimentName] = loader(vararg
 
     path(path,strcat(cd,'/lib'));
     
-    filename = 'excel_file/ExperimentTable.xlsx';
+    filename = 'sensor_data/ExperimentTable.xlsx';
     [~,~,A]  = xlsread(filename,'','','basic');
     
     sizeA = size(A);
@@ -109,7 +110,7 @@ function [ MocapData, w1Data, w2Data, KinectData,experimentName] = loader(vararg
     end
     
     control = {'controlled','notcontrolled'};
-    controlType = {'normal','quick','slow','holding','wrongpos'};
+    controlType = {'normal','delay','slow','holding','wrongpos','deceptiveobject'};
     object = {'card','paper','waterbottle','box','dictionary','pillow','stick','mug','ball','blackbottle'};
     moving = {'approach','noapproach'};
     agent = {'giving','receiving'};
@@ -154,7 +155,7 @@ function [ MocapData, w1Data, w2Data, KinectData,experimentName] = loader(vararg
         end
     end
            
-    folders = dir('excel_file');
+    folders = dir('sensor_data');
     numNumb = length(numbers);
     numDir = length(folders);
     ID = 1;
@@ -163,7 +164,7 @@ function [ MocapData, w1Data, w2Data, KinectData,experimentName] = loader(vararg
         directory = folders(i).name;
         if directory ~= '.';
             if index == 1
-                filename = strcat('excel_file/',directory,'/',varargin,'.xlsx');
+                filename = strcat('sensor_data/',directory,'/',varargin,'.xlsx');
                 inFID = fopen(char(filename),'r');
                 if inFID~= -1
                     filename
@@ -174,7 +175,7 @@ function [ MocapData, w1Data, w2Data, KinectData,experimentName] = loader(vararg
                 end
             else
                 for j=1:numNumb
-                    filename = strcat('excel_file/',directory,'/',directory,'_',num2str(numbers(j)),'*.xlsx');                   
+                    filename = strcat('sensor_data/',directory,'/',directory,'_',num2str(numbers(j)),'*.xlsx');                   
                     files = dir(filename);
                     numFiles = length(files);
                     
@@ -182,7 +183,7 @@ function [ MocapData, w1Data, w2Data, KinectData,experimentName] = loader(vararg
                         C = strsplit(files(k).name,{'_','.'});
                         l = length(C);
                         if and(strcmp(C{l-1},'bis'),strcmp(C{l-2},num2str(numbers(j)))) || strcmp(C{l-1},num2str(numbers(j)))
-                            filename = strcat('excel_file/',directory,'/',files(k).name);
+                            filename = strcat('sensor_data/',directory,'/',files(k).name);
                             inFID = fopen(char(filename),'r');
 
                             if inFID~= -1

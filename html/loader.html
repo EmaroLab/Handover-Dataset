@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>loader</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-03-31"><meta name="DC.source" content="loader.m"><style type="text/css">
+      --><title>loader</title><meta name="generator" content="MATLAB 8.6"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2016-05-11"><meta name="DC.source" content="loader.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -66,7 +66,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 
-  </style></head><body><div class="content"><h1>loader</h1><!--introduction--><p>load excel files</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">Examples</a></li><li><a href="#4">Input Arguments</a></li><li><a href="#5">Output Arguments</a></li><li><a href="#6">More About</a></li></ul></div><h2>Syntax<a name="1"></a></h2><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader(experiment_name)</pre><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader(keyword)</pre><h2>Description<a name="2"></a></h2><p>loader creates four cell array containig the data of one or more experiments. The experiments can be selected using the exact name or through the usage of keywords</p><h2>Examples<a name="3"></a></h2><p>load one experiment using its name</p><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('Andrea_65');</pre><p>load all the controlled experiments</p><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('controlled');</pre><p>load all the experiments</p><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('all');</pre><p>load only kinect data of experiments with approach</p><pre>     [~,~,~,KinectData,experimentName] = loader('approach');</pre><h2>Input Arguments<a name="4"></a></h2><p><b>experiment name</b></p><p>it should be in one of the following form: " <b>Subject_Num</b> "   or   " <b>Subject1_Subject2_Num</b> "</p><p><b>key word</b></p><p>it has to be selected between one of the following</p><div><ul><li>all</li><li>controlled (<b>experiment type</b>)</li><li>notcontrolled (<b>experiment type</b>)</li><li>approach (<b>experiment type</b>)</li><li>noapproach (<b>experiment type</b>)</li><li>giving (<b>experiment type</b>)</li><li>receving (<b>experiment type</b>)</li><li>card (<b>item type</b>)</li><li>paper (<b>item type</b>)</li><li>waterbottle (<b>item type</b>)</li><li>box (<b>item type</b>)</li><li>dictionary (<b>item type</b>)</li><li>pillow (<b>item type</b>)</li><li>stick (<b>item type</b>)</li><li>mug (<b>item type</b>)</li><li>ball (<b>item type</b>)</li><li>blackbottle (<b>item type</b>)</li><li>normal (<b>control type</b>)</li><li>quick (<b>control type</b>)</li><li>slow (<b>control type</b>)</li><li>holding (<b>control type</b>)</li><li>wrongpos (<b>control type</b>)</li></ul></div><h2>Output Arguments<a name="5"></a></h2><p>the output concerns of four cell array and a vector of string</p><div><ul><li>MocapData (contains 3D coordinate of 20 marker tracked by a mocap)</li><li>w1Data (contains IMU data collected by a smartwatch)</li><li>w2Data (contains IMU data collected by a smartwatch)</li><li>KinectData (3D coordinates of 15 human joints tracked by the kinect)</li><li>experimentName (name of experiment)</li></ul></div><p>w1Data and KinectData refers to the same person.</p><p>In case more than one experiment are loaded at the same time, each matrix is aranged in a 3 dimensional cell array in which the last index allows to identify the experiment. The sam thing works for the vector <i>experimentName</i></p><p><b>e.g.</b> if I loaded N experiment and I want to access one specific one</p><pre>     MocapData(:,:,1)</pre><h2>More About<a name="6"></a></h2><p>All the data regarding the experiment descriptions are stored in the file ExperimentTable so that it would be possible to extend the function in order to accept more that one input.</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
+  </style></head><body><div class="content"><h1>loader</h1><!--introduction--><p>load excel files</p><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#1">Syntax</a></li><li><a href="#2">Description</a></li><li><a href="#3">Examples</a></li><li><a href="#4">Input Arguments</a></li><li><a href="#5">Output Arguments</a></li><li><a href="#6">More About</a></li></ul></div><h2>Syntax<a name="1"></a></h2><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader(experiment_name)</pre><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader(keyword)</pre><h2>Description<a name="2"></a></h2><p>loader creates four cell array containig the data of one or more experiments. The experiments can be selected using the exact name or through the usage of keywords</p><h2>Examples<a name="3"></a></h2><p>load one experiment using its name</p><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('volunteer_1_65');</pre><p>load all the controlled experiments</p><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('controlled');</pre><p>load all the experiments</p><pre>     [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('all');</pre><p>load only kinect data of experiments with approach</p><pre>     [~,~,~,KinectData,experimentName] = loader('approach');</pre><h2>Input Arguments<a name="4"></a></h2><p><b>experiment name</b></p><p>it should be in one of the following form: " <b>Subject_Num</b> "   or   " <b>Subject1_Subject2_Num</b> "</p><p><b>key word</b></p><p>it has to be selected between one of the following</p><div><ul><li>all</li><li>controlled (<b>experiment type</b>)</li><li>notcontrolled (<b>experiment type</b>)</li><li>approach (<b>experiment type</b>)</li><li>noapproach (<b>experiment type</b>)</li><li>giving (<b>experiment type</b>)</li><li>receving (<b>experiment type</b>)</li><li>card (<b>item</b>)</li><li>paper (<b>item</b>)</li><li>waterbottle (<b>item</b>)</li><li>box (<b>item</b>)</li><li>dictionary (<b>item</b>)</li><li>pillow (<b>item</b>)</li><li>stick (<b>item</b>)</li><li>mug (<b>item</b>)</li><li>ball (<b>item</b>)</li><li>blackbottle (<b>item</b>)</li><li>normal (<b>strategy</b>)</li><li>quick (<b>strategy</b>)</li><li>delay (<b>strategy</b>)</li><li>holding (<b>strategy</b>)</li><li>wrongpos (<b>strategy</b>)</li><li>deceptiveobject (<b>strategy</b>)</li></ul></div><h2>Output Arguments<a name="5"></a></h2><p>the output concerns of four cell array and a vector of string</p><div><ul><li>MocapData (contains 3D coordinate of 20 marker tracked by a mocap)</li><li>w1Data (contains IMU data collected by a smartwatch)</li><li>w2Data (contains IMU data collected by a smartwatch)</li><li>KinectData (3D coordinates of 15 human joints tracked by the kinect)</li><li>experimentName (name of experiment)</li></ul></div><p>w1Data and KinectData refers to the same person.</p><p>In case more than one experiment are loaded at the same time, each matrix is aranged in a 3 dimensional cell array in which the last index allows to identify the experiment. The sam thing works for the vector <i>experimentName</i></p><p><b>e.g.</b> if I loaded N experiment and I want to access one specific one</p><pre>     MocapData(:,:,1)</pre><h2>More About<a name="6"></a></h2><p>All the data regarding the experiment descriptions are stored in the file ExperimentTable so that it would be possible to extend the function in order to accept more that one input.</p><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2015b</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %% loader
 % 
@@ -87,7 +87,7 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 % 
 % load one experiment using its name
 %
-%       [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('Andrea_65');
+%       [MocapData,w1Data,w2Data,KinectData,experimentName] = loader('volunteer_1_65');
 %
 % load all the controlled experiments
 %
@@ -117,21 +117,22 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 % * noapproach (*experiment type*)
 % * giving (*experiment type*)
 % * receving (*experiment type*)
-% * card (*item type*)          
-% * paper (*item type*)
-% * waterbottle (*item type*)
-% * box (*item type*)
-% * dictionary (*item type*)
-% * pillow (*item type*)
-% * stick (*item type*)
-% * mug (*item type*)
-% * ball (*item type*)
-% * blackbottle (*item type*)
-% * normal (*control type*)
-% * quick (*control type*)
-% * slow (*control type*)
-% * holding (*control type*)
-% * wrongpos (*control type*)
+% * card (*item*)          
+% * paper (*item*)
+% * waterbottle (*item*)
+% * box (*item*)
+% * dictionary (*item*)
+% * pillow (*item*)
+% * stick (*item*)
+% * mug (*item*)
+% * ball (*item*)
+% * blackbottle (*item*)
+% * normal (*strategy*)
+% * quick (*strategy*)
+% * delay (*strategy*)
+% * holding (*strategy*)
+% * wrongpos (*strategy*)
+% * deceptiveobject (*strategy*)
 %
 %
 %% Output Arguments
@@ -163,7 +164,12 @@ table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px soli
 
 
 function [ MocapData, w1Data, w2Data, KinectData,experimentName] = loader(varargin)
-    filename = 'excel_file/ExperimentTable.xlsx';
+   
+    s = cd;
+
+    path(path,strcat(cd,'/lib'));
+    
+    filename = 'sensor_data/ExperimentTable.xlsx';
     [~,~,A]  = xlsread(filename,'','','basic');
     
     sizeA = size(A);
@@ -174,7 +180,7 @@ function [ MocapData, w1Data, w2Data, KinectData,experimentName] = loader(vararg
     end
     
     control = {'controlled','notcontrolled'};
-    controlType = {'normal','quick','slow','holding','wrongpos'};
+    controlType = {'normal','delay','slow','holding','wrongpos','deceptiveobject'};
     object = {'card','paper','waterbottle','box','dictionary','pillow','stick','mug','ball','blackbottle'};
     moving = {'approach','noapproach'};
     agent = {'giving','receiving'};
@@ -219,7 +225,7 @@ function [ MocapData, w1Data, w2Data, KinectData,experimentName] = loader(vararg
         end
     end
            
-    folders = dir('excel_file');
+    folders = dir('sensor_data');
     numNumb = length(numbers);
     numDir = length(folders);
     ID = 1;
@@ -228,40 +234,45 @@ function [ MocapData, w1Data, w2Data, KinectData,experimentName] = loader(vararg
         directory = folders(i).name;
         if directory ~= '.';
             if index == 1
-                filename = strcat('excel_file/',directory,'/',varargin,'.xlsx');
+                filename = strcat('sensor_data/',directory,'/',varargin,'.xlsx');
                 inFID = fopen(char(filename),'r');
                 if inFID~= -1
                     filename
                     fclose(inFID);
-                    [~,~,A]  = xlsread(char(filename),'','','basic')
-                     
+                    [~,~,A]  = xlsread(char(filename),'','','basic');                     
                     [MocapData, w1Data, w2Data, KinectData]=split(A);
                     experimentName = varargin;
                 end
             else
                 for j=1:numNumb
-                    filename = strcat('excel_file/',directory,'/',directory,'_',num2str(numbers(j)),'*.xlsx');
+                    filename = strcat('sensor_data/',directory,'/',directory,'_',num2str(numbers(j)),'*.xlsx');                   
                     files = dir(filename);
                     numFiles = length(files);
+                    
                     for k=1:numFiles
-                        filename = strcat('excel_file/',directory,'/',files(k).name);
-                        inFID = fopen(char(filename),'r');
+                        C = strsplit(files(k).name,{'_','.'});
+                        l = length(C);
+                        if and(strcmp(C{l-1},'bis'),strcmp(C{l-2},num2str(numbers(j)))) || strcmp(C{l-1},num2str(numbers(j)))
+                            filename = strcat('sensor_data/',directory,'/',files(k).name);
+                            inFID = fopen(char(filename),'r');
 
-                        if inFID~= -1
-                            filename
-                            fclose(inFID);
-                            [~,~,A]  = xlsread(char(filename),'','','basic');
-                            [M, w1, w2, Kinect]=split(A);
-                            sM = size(M);
-                            sw1 = size(w1);
-                            sw2 = size(w2);
-                            sK = size(Kinect);
-                            MocapData(1:sM(1),1:sM(2),ID) = M;
-                            w1Data(1:sw1(1),1:sw1(2),ID) = w1;
-                            w2Data(1:sw2(1),1:sw2(2),ID) = w2;
-                            KinectData(1:sK(1),1:sK(2),ID) = Kinect;
-                            experimentName(1,ID) = cellstr(strcat(directory,'_',num2str(numbers(j))));
-                            ID = ID+1;
+                            if inFID~= -1
+                                filename
+                                fclose(inFID);
+                                [~,~,A]  = xlsread(char(filename),'','','basic');
+                                [M, w1, w2, Kinect]=split(A);
+                                sM = size(M);
+                                sw1 = size(w1);
+                                sw2 = size(w2);
+                                sK = size(Kinect);
+                                MocapData(1:sM(1),1:sM(2),ID) = M;
+                                w1Data(1:sw1(1),1:sw1(2),ID) = w1;
+                                w2Data(1:sw2(1),1:sw2(2),ID) = w2;
+                                KinectData(1:sK(1),1:sK(2),ID) = Kinect;
+                                C = strsplit(filename,{'.','/'});
+                                experimentName(1,ID) = cellstr(C(3));
+                                ID = ID+1;
+                            end
                         end
                     end
                 end
